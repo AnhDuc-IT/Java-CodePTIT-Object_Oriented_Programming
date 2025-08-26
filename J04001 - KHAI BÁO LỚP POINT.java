@@ -1,37 +1,41 @@
-
 import java.util.*;
-public class Solution {
-    public static boolean Prime(int n){
-        for(int i = 2; i * i <= n; i++){
-            if(n % i == 0) return false;
-        }
-        return n > 1;
+class Point{
+    private double x, y;
+    public Point(){}
+    public Point(double x, double y){
+        this.x = x;
+        this.y = y;
     }
-    public static boolean check(int n){
-        int temp = n;
-        int rev = 0;
-        while(n > 0){
-            rev = rev * 10 + n % 10;
-            n /= 10;
-        }
-        return rev == temp;
+    public Point(Point other){
+        this.x = other.x;
+        this.y = other.y;
     }
-    public static long gcd(long a, long b){
-        while(b > 0){
-            long temp = a % b;
-            a = b;
-            b = temp;
-        }
-        return a;
+    public double getX(){
+        return this.x;
     }
+    public double getY(){
+        return this.y;
+    }
+    public double distance(Point other){
+        return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
+    }
+    public double distance(Point a, Point b){
+        return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
+    }
+    public String toString(){
+        return this.x + " " + this.y;
+    }
+}
+public class Solution{
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int t = sc.nextInt();
-        while(t-- > 0){
-            double a = sc.nextDouble(), b = sc.nextDouble(), c = sc.nextDouble(), d = sc.nextDouble();
-            double res = Math.sqrt((double)(a - c) * (a - c) + (b - d) * (b - d));
-            System.out.printf("%.4f", res);
+        int n = sc.nextInt();
+        for(int i = 1; i <= n; i++){
+            Point a = new Point(sc.nextDouble(), sc.nextDouble());
+            Point b = new Point(sc.nextDouble(), sc.nextDouble());
+            System.out.printf("%.4f",a.distance(b));
             System.out.println();
         }
+        sc.close();
     }
 }
