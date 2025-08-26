@@ -1,5 +1,5 @@
 import java.util.*;
-public class Main {
+public class Solution {
     static class student {
         String code, name, method, mail;
         public student(String c, String n, String m, String em) {
