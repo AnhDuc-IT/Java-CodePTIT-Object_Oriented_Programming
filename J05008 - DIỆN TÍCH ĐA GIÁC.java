@@ -1,31 +1,4 @@
 import java.util.*;
-class HocBong {
-    private String name;
-    private double GPA;
-    private int DRL;
-    public HocBong(String name, double GPA, int DRL){
-        this.name = name;
-        this.GPA = GPA;
-        this.DRL = DRL;
-    }
-    public String getHocBong(){
-        if(this.GPA >= 3.6 && this.DRL >= 90) return "XUATSAC";
-        if(this.GPA >= 3.2 && this.DRL >= 80) return "GIOI";
-        if(this.GPA >= 2.5 && this.DRL >= 70) return "KHA";
-        return "KHONG";
-    }
-    public boolean check(){
-        return !getHocBong().equals("KHONG");
-    }
-
-    public double getGPA(){ return this.GPA; }
-    public int getDRL(){ return this.DRL; }
-    public String getName(){ return this.name; }
-    @Override
-    public String toString(){
-        return this.name + ": " + getHocBong();
-    }
-}
 class Point{
     private int x, y;
     public Point(int x, int y){
